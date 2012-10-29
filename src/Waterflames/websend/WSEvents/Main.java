@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerBedEnterEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
@@ -30,9 +28,4 @@ public class Main extends JavaPlugin{
     public void onDisable(){
         
     }
-}
-class Listeners { 
-    public static class DerpListener implements Listener { 
-        public void onDerp(PlayerBedEnterEvent e) {} 
-    } 
 }
