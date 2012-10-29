@@ -58,13 +58,13 @@ public class WSPlayerListener implements Listener{
         }
     }
     
-    @EventHandler
-    public void onPlayerChat(PlayerChatEvent e){
-        if(config.getPlayerConfiguration().chatEnabled){
-            String[] array = {"event", "chatEnabled"};
-            Main.doCommand(array, e.getPlayer());
-        }
-    }
+    //@EventHandler
+    //public void onPlayerChat(PlayerChatEvent e){
+    //    if(config.getPlayerConfiguration().chatEnabled){
+    //        String[] array = {"event", "chatEnabled"};
+    //        Main.doCommand(array, e.getPlayer());
+    //    }
+    //}
     
     @EventHandler
     public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent e){
@@ -127,13 +127,13 @@ public class WSPlayerListener implements Listener{
             Main.doCommand(array, e.getPlayer());
         }
     }
-    @EventHandler
-    public void onPlayerInventory(PlayerInventoryEvent e){
-        if(config.getPlayerConfiguration().inventoryEnabled){
-            String[] array = {"event", "inventory"};
-            Main.doCommand(array, e.getPlayer());
-        }
-    }
+    //@EventHandler
+    //public void onPlayerInventory(PlayerInventoryEvent e){
+    //    if(config.getPlayerConfiguration().inventoryEnabled){
+    //        String[] array = {"event", "inventory"};
+    //        Main.doCommand(array, e.getPlayer());
+    //    }
+    //}
     @EventHandler
     public void onPlayerItemHeld(PlayerItemHeldEvent e){
         if(config.getPlayerConfiguration().itemHeldEnabled){
@@ -190,13 +190,13 @@ public class WSPlayerListener implements Listener{
             Main.doCommand(array, e.getPlayer());
         }
     }
-    @EventHandler
-    public void onPlayerPreLogin(PlayerPreLoginEvent e){
-        if(config.getPlayerConfiguration().preLoginEnabled){
-            String[] array = {"event", "preLogin"};
-            Main.doCommand(array, e.getName());
-        }
-    }
+    //@EventHandler
+    //public void onPlayerPreLogin(PlayerPreLoginEvent e){
+    //    if(config.getPlayerConfiguration().preLoginEnabled){
+    //        String[] array = {"event", "preLogin"};
+    //        Main.doCommand(array, e.getName());
+    //    }
+    //}
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent e){
         if(config.getPlayerConfiguration().quitEnabled){
