@@ -1,14 +1,14 @@
 package com.github.websend.events.listener;
 
-import com.github.websend.events.configuration.ServerEventsConfiguration;
 import com.github.websend.Main;
+import com.github.websend.events.configuration.ServerEventsConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.event.server.*;
 
-public class WSServerListener implements Listener{
+public class ServerListener implements Listener{
     ServerEventsConfiguration config = null;
 
-    public WSServerListener(ServerEventsConfiguration config) {
+    public ServerListener(ServerEventsConfiguration config) {
         this.config = config;
     }
     

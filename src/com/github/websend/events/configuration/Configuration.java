@@ -55,6 +55,6 @@ public abstract class Configuration {
         writer.close();
     };
     
-    public abstract String[] getEventNameList();
     public abstract String getFilename();
+    public abstract String[] getEventNameList();
 }

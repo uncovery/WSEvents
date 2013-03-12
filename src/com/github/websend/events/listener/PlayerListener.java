@@ -1,15 +1,15 @@
 package com.github.websend.events.listener;
 
-import com.github.websend.events.configuration.PlayerEventsConfiguration;
 import com.github.websend.Main;
+import com.github.websend.events.configuration.PlayerEventsConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.*;
 
-public class WSPlayerListener implements Listener{
+public class PlayerListener implements Listener{
     PlayerEventsConfiguration config = null;
 
-    public WSPlayerListener(PlayerEventsConfiguration config) {
+    public PlayerListener(PlayerEventsConfiguration config) {
         this.config = config;
     }
     
