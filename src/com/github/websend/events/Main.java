@@ -14,6 +14,7 @@ public class Main extends JavaPlugin{
     public void onEnable(){
         instance = this;
         int loaded = registerListeners();
+        this.getLogger().info("Enabled "+loaded+" event listening classes.");
     }
     
     @Override
