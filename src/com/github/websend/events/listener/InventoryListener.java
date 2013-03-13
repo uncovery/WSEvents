@@ -70,14 +70,6 @@ public class InventoryListener implements Listener{
     }
 
     @EventHandler
-    public void onEvent(InventoryEvent e){
-        if(config.isEventEnabled(e.getEventName())){
-            String[] array = {"event", e.getEventName()};
-            Main.doCommand(array, "WEBSEND_EVENTS_INVENTORY");
-        }
-    }
-
-    @EventHandler
     public void onEvent(InventoryOpenEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};

@@ -13,12 +13,9 @@ public class ServerEventsConfiguration extends Configuration {
                     "MapInitializeEvent",
                     "PluginDisableEvent",
                     "PluginEnableEvent",
-                    "PluginEvent",
                     "RemoteServerCommandEvent",
                     "ServerCommandEvent",
-                    "ServerEvent",
                     "ServerListPingEvent",
-                    "ServiceEvent",
                     "ServiceRegisterEvent",
                     "ServiceUnregisterEvent"
                 };

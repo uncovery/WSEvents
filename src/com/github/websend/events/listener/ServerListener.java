@@ -37,7 +37,7 @@ public class ServerListener implements Listener{
         }
     }
 
-    @EventHandler
+    //@EventHandler
     public void onEvent(PluginEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
@@ -64,23 +64,7 @@ public class ServerListener implements Listener{
     }
 
     @EventHandler
-    public void onEvent(ServerEvent e){
-        if(config.isEventEnabled(e.getEventName())){
-            String[] array = {"event", e.getEventName()};
-            Main.doCommand(array, "WEBSEND_EVENTS_SERVER");
-        }
-    }
-
-    @EventHandler
     public void onEvent(ServerListPingEvent e){
-        if(config.isEventEnabled(e.getEventName())){
-            String[] array = {"event", e.getEventName()};
-            Main.doCommand(array, "WEBSEND_EVENTS_SERVER");
-        }
-    }
-
-    @EventHandler
-    public void onEvent(ServiceEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
             Main.doCommand(array, "WEBSEND_EVENTS_SERVER");

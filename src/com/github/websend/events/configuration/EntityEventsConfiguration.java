@@ -22,7 +22,6 @@ public class EntityEventsConfiguration extends Configuration {
                     "EntityDamageByEntityEvent",
                     "EntityDamageEvent",
                     "EntityDeathEvent",
-                    "EntityEvent",
                     "EntityExplodeEvent",
                     "EntityInteractEvent",
                     "EntityPortalEnterEvent",

@@ -30,14 +30,6 @@ public class HangingListener implements Listener{
     }
 
     @EventHandler
-    public void onEvent(HangingEvent e){
-        if(config.isEventEnabled(e.getEventName())){
-            String[] array = {"event", e.getEventName()};
-            Main.doCommand(array, "WEBSEND_EVENTS_HANGING");
-        }
-    }
-
-    @EventHandler
     public void onEvent(HangingPlaceEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};

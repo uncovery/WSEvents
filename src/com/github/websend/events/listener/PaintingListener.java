@@ -30,14 +30,6 @@ public class PaintingListener implements Listener{
     }
 
     @EventHandler
-    public void onEvent(PaintingEvent e){
-        if(config.isEventEnabled(e.getEventName())){
-            String[] array = {"event", e.getEventName()};
-            Main.doCommand(array, "WEBSEND_EVENTS_PAINTING");
-        }
-    }
-
-    @EventHandler
     public void onEvent(PaintingPlaceEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};

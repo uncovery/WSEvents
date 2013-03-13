@@ -12,7 +12,6 @@ public class HangingEventsConfiguration extends Configuration {
         return new String[]{
                     "HangingBreakByEntityEvent",
                     "HangingBreakEvent",
-                    "HangingEvent",
                     "HangingPlaceEvent"
                 };
     }

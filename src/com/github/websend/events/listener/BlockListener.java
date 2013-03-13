@@ -54,14 +54,6 @@ public class BlockListener implements Listener{
     }
 
     @EventHandler
-    public void onEvent(BlockEvent e){
-        if(config.isEventEnabled(e.getEventName())){
-            String[] array = {"event", e.getEventName()};
-            Main.doCommand(array, "WEBSEND_EVENTS_BLOCK");
-        }
-    }
-
-    @EventHandler
     public void onEvent(BlockExpEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
@@ -111,14 +103,6 @@ public class BlockListener implements Listener{
 
     @EventHandler
     public void onEvent(BlockPhysicsEvent e){
-        if(config.isEventEnabled(e.getEventName())){
-            String[] array = {"event", e.getEventName()};
-            Main.doCommand(array, "WEBSEND_EVENTS_BLOCK");
-        }
-    }
-
-    @EventHandler
-    public void onEvent(BlockPistonEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
             Main.doCommand(array, "WEBSEND_EVENTS_BLOCK");

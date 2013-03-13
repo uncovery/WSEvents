@@ -3,7 +3,6 @@ package com.github.websend.events;
 import com.github.websend.events.configuration.*;
 import com.github.websend.events.listener.*;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.bukkit.plugin.java.JavaPlugin;
 
 

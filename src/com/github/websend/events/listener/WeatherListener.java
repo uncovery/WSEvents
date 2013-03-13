@@ -36,12 +36,4 @@ public class WeatherListener implements Listener{
             Main.doCommand(array, "WEBSEND_EVENTS_WEATHER");
         }
     }
-
-    @EventHandler
-    public void onEvent(WeatherEvent e){
-        if(config.isEventEnabled(e.getEventName())){
-            String[] array = {"event", e.getEventName()};
-            Main.doCommand(array, "WEBSEND_EVENTS_WEATHER");
-        }
-    }
 }

@@ -110,14 +110,6 @@ public class EntityListener implements Listener {
     }
 
     @EventHandler
-    public void onEvent(EntityEvent e){
-        if(config.isEventEnabled(e.getEventName())){
-            String[] array = {"event", e.getEventName()};
-            Main.doCommand(array, "WEBSEND_EVENTS_ENTITY");
-        }
-    }
-
-    @EventHandler
     public void onEvent(EntityExplodeEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};

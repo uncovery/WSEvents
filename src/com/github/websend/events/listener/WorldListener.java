@@ -13,7 +13,7 @@ public class WorldListener implements Listener{
         this.config = config;
     }
     
-    @EventHandler
+    //@EventHandler
     public void onEvent(ChunkEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
@@ -63,14 +63,6 @@ public class WorldListener implements Listener{
 
     @EventHandler
     public void onEvent(StructureGrowEvent e){
-        if(config.isEventEnabled(e.getEventName())){
-            String[] array = {"event", e.getEventName()};
-            Main.doCommand(array, "WEBSEND_EVENTS_WORLD");
-        }
-    }
-
-    @EventHandler
-    public void onEvent(WorldEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
             Main.doCommand(array, "WEBSEND_EVENTS_WORLD");

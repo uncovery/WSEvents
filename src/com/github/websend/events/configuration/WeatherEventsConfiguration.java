@@ -12,8 +12,7 @@ public class WeatherEventsConfiguration extends Configuration {
         return new String[]{
                     "LightningStrikeEvent",
                     "ThunderChangeEvent",
-                    "WeatherChangeEvent",
-                    "WeatherEvent"
+                    "WeatherChangeEvent"
                 };
     }
 }

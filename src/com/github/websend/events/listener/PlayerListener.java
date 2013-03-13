@@ -63,14 +63,6 @@ public class PlayerListener implements Listener{
     }
 
     @EventHandler
-    public void onEvent(PlayerBucketEvent e){
-        if(config.isEventEnabled(e.getEventName())){
-            String[] array = {"event", e.getEventName()};
-            Main.doCommand(array, e.getPlayer());
-        }
-    }
-
-    @EventHandler
     public void onEvent(PlayerBucketFillEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
@@ -128,14 +120,6 @@ public class PlayerListener implements Listener{
 
     @EventHandler
     public void onEvent(PlayerEggThrowEvent e){
-        if(config.isEventEnabled(e.getEventName())){
-            String[] array = {"event", e.getEventName()};
-            Main.doCommand(array, e.getPlayer());
-        }
-    }
-
-    @EventHandler
-    public void onEvent(PlayerEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
             Main.doCommand(array, e.getPlayer());

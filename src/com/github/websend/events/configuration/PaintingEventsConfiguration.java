@@ -12,7 +12,6 @@ public class PaintingEventsConfiguration extends Configuration {
         return new String[]{
                     "PaintingBreakByEntityEvent",
                     "PaintingBreakEvent",
-                    "PaintingEvent",
                     "PaintingPlaceEvent"
                 };
     }

@@ -17,7 +17,6 @@ public class WorldEventsConfiguration extends Configuration {
                     "PortalCreateEvent",
                     "SpawnChangeEvent",
                     "StructureGrowEvent",
-                    "WorldEvent",
                     "WorldInitEvent",
                     "WorldLoadEvent",
                     "WorldSaveEvent",

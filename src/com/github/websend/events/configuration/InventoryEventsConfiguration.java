@@ -17,7 +17,6 @@ public class InventoryEventsConfiguration extends Configuration {
                     "FurnaceSmeltEvent",
                     "InventoryClickEvent",
                     "InventoryCloseEvent",
-                    "InventoryEvent",
                     "InventoryOpenEvent",
                     "PrepareItemCraftEvent"};
     }
