@@ -163,6 +163,7 @@ public class Main extends JavaPlugin{
     private static void generateEventHandlerCode(String[] eventNames){
         for(String cur : eventNames){
             System.out.println();
+            System.out.println("    @EventHandler");
             System.out.println("    public void onEvent("+cur+" e){");
             System.out.println("        if(config.isEventEnabled(e.getEventName())){");
             System.out.println("            String[] array = {\"event\", e.getEventName()};");
