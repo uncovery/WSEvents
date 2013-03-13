@@ -2,11 +2,11 @@ package com.github.websend.events.configuration;
 
 import com.github.websend.events.Main;
 import java.io.*;
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.logging.Level;
 
 public abstract class Configuration {
-    private static HashMap<String, Boolean> eventList = new HashMap<String, Boolean>();
+    private HashSet<String> activeEventsList = new HashSet<String>();
     
     public void loadConfiguration() throws IOException{        
         File configFile = new File(Main.getInstance().getDataFolder(), this.getFilename());
@@ -24,15 +24,11 @@ public abstract class Configuration {
     }
     
     public boolean isEventEnabled(String eventName){
-        if(!eventList.containsKey(eventName)){
-            return false;
-        }else{
-            return eventList.get(eventName);
-        }
+        return activeEventsList.contains(eventName);
     }
     
     public boolean hasActiveEvent(){
-        return eventList.containsValue(true);
+        return !activeEventsList.isEmpty();
     }
     
     private void parseLine(String line){
@@ -41,8 +37,10 @@ public abstract class Configuration {
         }else{
             String name = line.split("=")[0].trim();
             String boolString = line.split("=")[1].trim();
-            boolean bool = Boolean.parseBoolean(boolString.trim());
-            eventList.put(name, bool);
+            boolean active = Boolean.parseBoolean(boolString.trim());
+            if(active){
+                activeEventsList.add(name);
+            }
         }
     }
     
