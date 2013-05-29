@@ -167,14 +167,6 @@ public class PlayerListener implements Listener{
     }
 
     @EventHandler
-    public void onEvent(PlayerInventoryEvent e){
-        if(config.isEventEnabled(e.getEventName())){
-            String[] array = {"event", e.getEventName()};
-            Main.doCommand(array, e.getPlayer());
-        }
-    }
-
-    @EventHandler
     public void onEvent(PlayerItemBreakEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
@@ -334,7 +326,6 @@ public class PlayerListener implements Listener{
         }
     }
     
-    @EventHandler
     public void onCustomEvent(String eventName, Player player){
         String[] array = {"event", eventName};
             Main.doCommand(array, player);
