@@ -31,6 +31,7 @@ public class PlayerEventsConfiguration extends Configuration {
                     "PlayerInteractEvent",
                     "PlayerInventoryEvent",
                     "PlayerItemBreakEvent",
+                    "PlayerItemConsumeEvent",
                     "PlayerItemHeldEvent",
                     "PlayerJoinEvent",
                     "PlayerKickEvent",
@@ -48,6 +49,7 @@ public class PlayerEventsConfiguration extends Configuration {
                     "PlayerToggleFlightEvent",
                     "PlayerToggleSneakEvent",
                     "PlayerToggleSprintEvent",
+                    "PlayerUnleashEntityEvent",
                     "PlayerUnregisterChannelEvent",
                     "PlayerVelocityEvent"};
     }

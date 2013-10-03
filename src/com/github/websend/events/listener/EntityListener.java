@@ -8,7 +8,7 @@ import org.bukkit.event.entity.*;
 
 public class EntityListener implements Listener {
     EntityEventsConfiguration config = null;
-
+    
     public EntityListener(EntityEventsConfiguration config) {
         this.config = config;
     } 
@@ -198,6 +198,14 @@ public class EntityListener implements Listener {
     }
 
     @EventHandler
+    public void onEvent(EntityUnleashEvent e){
+        if(config.isEventEnabled(e.getEventName())){
+            String[] array = {"event", e.getEventName()};
+            Main.doCommand(array, "WEBSEND_EVENTS_ENTITY");
+        }
+    }
+
+    @EventHandler
     public void onEvent(ExpBottleEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
@@ -215,6 +223,14 @@ public class EntityListener implements Listener {
 
     @EventHandler
     public void onEvent(FoodLevelChangeEvent e){
+        if(config.isEventEnabled(e.getEventName())){
+            String[] array = {"event", e.getEventName()};
+            Main.doCommand(array, "WEBSEND_EVENTS_ENTITY");
+        }
+    }
+
+    @EventHandler
+    public void onEvent(HorseJumpEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
             Main.doCommand(array, "WEBSEND_EVENTS_ENTITY");
