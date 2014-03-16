@@ -29,6 +29,14 @@ public class PlayerListener implements Listener{
             Main.doCommand(array, e.getName());
         }
     }
+    
+    @EventHandler
+    public void onEvent(PlayerAchievementAwardedEvent e){
+        if(config.isEventEnabled(e.getEventName())){
+            String[] array = {"event", e.getEventName()};
+            Main.doCommand(array, e.getPlayer());
+        }
+    }
 
     @EventHandler
     public void onEvent(PlayerAnimationEvent e){
@@ -112,6 +120,14 @@ public class PlayerListener implements Listener{
 
     @EventHandler
     public void onEvent(PlayerDropItemEvent e){
+        if(config.isEventEnabled(e.getEventName())){
+            String[] array = {"event", e.getEventName()};
+            Main.doCommand(array, e.getPlayer());
+        }
+    }
+    
+    @EventHandler
+    public void onEvent(PlayerEditBookEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
             Main.doCommand(array, e.getPlayer());
@@ -280,6 +296,14 @@ public class PlayerListener implements Listener{
 
     @EventHandler
     public void onEvent(PlayerShearEntityEvent e){
+        if(config.isEventEnabled(e.getEventName())){
+            String[] array = {"event", e.getEventName()};
+            Main.doCommand(array, e.getPlayer());
+        }
+    }
+    
+    @EventHandler
+    public void onEvent(PlayerStatisticIncrementEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
             Main.doCommand(array, e.getPlayer());

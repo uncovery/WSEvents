@@ -42,6 +42,7 @@ public class EntityEventsConfiguration extends Configuration {
                     "ItemSpawnEvent",
                     "PigZapEvent",
                     "PlayerDeathEvent",
+                    "PlayerLeashEntityEvent",
                     "PotionSplashEvent",
                     "ProjectileHitEvent",
                     "ProjectileLaunchEvent",

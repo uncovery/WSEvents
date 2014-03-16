@@ -20,6 +20,14 @@ public class VehicleListener implements Listener{
             Main.doCommand(array, "WEBSEND_EVENTS_VEHICLE");
         }
     }
+    
+    @EventHandler
+    public void onEvent(VehicleCollisionEvent e){
+        if(config.isEventEnabled(e.getEventName())){
+            String[] array = {"event", e.getEventName()};
+            Main.doCommand(array, "WEBSEND_EVENTS_VEHICLE");
+        }
+    }
 
     @EventHandler
     public void onEvent(VehicleCreateEvent e){

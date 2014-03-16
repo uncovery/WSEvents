@@ -11,6 +11,7 @@ public class VehicleEventsConfiguration extends Configuration {
     public String[] getEventNameList() {
         return new String[]{
                     "VehicleBlockCollisionEvent",
+                    "VehicleCollisionEvent",
                     "VehicleCreateEvent",
                     "VehicleDamageEvent",
                     "VehicleDestroyEvent",

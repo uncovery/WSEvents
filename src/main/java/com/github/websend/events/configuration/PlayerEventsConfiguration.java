@@ -12,6 +12,7 @@ public class PlayerEventsConfiguration extends Configuration {
         return new String[]{
                     "AsyncPlayerChatEvent",
                     "AsyncPlayerPreLoginEvent",
+                    "PlayerAchievementAwardedEvent",
                     "PlayerAnimationEvent",
                     "PlayerBedEnterEvent",
                     "PlayerBedLeaveEvent",
@@ -23,6 +24,7 @@ public class PlayerEventsConfiguration extends Configuration {
                     "PlayerChatTabCompleteEvent",
                     "PlayerCommandPreprocessEvent",
                     "PlayerDropItemEvent",
+                    "PlayerEditBookEvent",
                     "PlayerEggThrowEvent",
                     "PlayerExpChangeEvent",
                     "PlayerFishEvent",
@@ -45,6 +47,7 @@ public class PlayerEventsConfiguration extends Configuration {
                     "PlayerRegisterChannelEvent",
                     "PlayerRespawnEvent",
                     "PlayerShearEntityEvent",
+                    "PlayerStatisticIncrementEvent",
                     "PlayerTeleportEvent",
                     "PlayerToggleFlightEvent",
                     "PlayerToggleSneakEvent",

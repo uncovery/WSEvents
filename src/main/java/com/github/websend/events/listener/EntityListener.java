@@ -267,6 +267,14 @@ public class EntityListener implements Listener {
             String[] array = {"event", e.getEventName()};
             Main.doCommand(array, "WEBSEND_EVENTS_ENTITY");
         }
+    
+    }
+    @EventHandler
+    public void onEvent(PlayerLeashEntityEvent e){
+        if(config.isEventEnabled(e.getEventName())){
+            String[] array = {"event", e.getEventName()};
+            Main.doCommand(array, "WEBSEND_EVENTS_ENTITY");
+        }
     }
 
     @EventHandler
