@@ -12,14 +12,6 @@ public class WorldListener implements Listener{
     public WorldListener(WorldEventsConfiguration config) {
         this.config = config;
     }
-    
-    //@EventHandler
-    public void onEvent(ChunkEvent e){
-        if(config.isEventEnabled(e.getEventName())){
-            String[] array = {"event", e.getEventName()};
-            Main.doCommand(array, "WEBSEND_EVENTS_WORLD");
-        }
-    }
 
     @EventHandler
     public void onEvent(ChunkLoadEvent e){

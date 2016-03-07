@@ -84,17 +84,6 @@ public class Main extends JavaPlugin{
         }
         
         try {
-            PaintingEventsConfiguration config = new PaintingEventsConfiguration();
-            config.loadConfiguration();
-            if(config.hasActiveEvent()){
-                this.getServer().getPluginManager().registerEvents(new PaintingListener(config), this);
-                loadedAmount++;
-            }
-        } catch (Exception ex) {
-            this.getLogger().log(Level.SEVERE, "Failed to load the painting events config file.", ex);
-        }
-        
-        try {
             PlayerEventsConfiguration config = new PlayerEventsConfiguration();
             config.loadConfiguration();
             if(config.hasActiveEvent()){

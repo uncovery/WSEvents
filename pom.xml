@@ -24,12 +24,12 @@
     <dependency>
       <groupId>com.github.websend</groupId>
       <artifactId>Websend</artifactId>
-      <version>2.5.2-SNAPSHOT</version>
+      <version>2.5.7-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.bukkit</groupId>
       <artifactId>bukkit</artifactId>
-      <version>1.7.2-R0.4-SNAPSHOT</version>
+      <version>1.9-R0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
 </project>

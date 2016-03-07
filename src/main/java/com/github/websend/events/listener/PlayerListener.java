@@ -173,6 +173,22 @@ public class PlayerListener implements Listener{
             Main.doCommand(array, e.getPlayer());
         }
     }
+    
+    @EventHandler
+    public void onEvent(PlayerArmorStandManipulateEvent e){
+        if(config.isEventEnabled(e.getEventName())){
+            String[] array = {"event", e.getEventName()};
+            Main.doCommand(array, e.getPlayer());
+        }
+    }
+    
+    @EventHandler
+    public void onEvent(PlayerInteractAtEntityEvent e){
+        if(config.isEventEnabled(e.getEventName())){
+            String[] array = {"event", e.getEventName()};
+            Main.doCommand(array, e.getPlayer());
+        }
+    }
 
     @EventHandler
     public void onEvent(PlayerInteractEvent e){
@@ -272,6 +288,14 @@ public class PlayerListener implements Listener{
 
     @EventHandler
     public void onEvent(PlayerQuitEvent e){
+        if(config.isEventEnabled(e.getEventName())){
+            String[] array = {"event", e.getEventName()};
+            Main.doCommand(array, e.getPlayer());
+        }
+    }
+    
+    @EventHandler
+    public void onEvent(PlayerResourcePackStatusEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
             Main.doCommand(array, e.getPlayer());

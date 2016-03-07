@@ -60,6 +60,14 @@ public class BlockListener implements Listener{
             Main.doCommand(array, "WEBSEND_EVENTS_BLOCK");
         }
     }
+    
+    @EventHandler
+    public void onEvent(BlockExplodeEvent e){
+        if(config.isEventEnabled(e.getEventName())){
+            String[] array = {"event", e.getEventName()};
+            Main.doCommand(array, "WEBSEND_EVENTS_BLOCK");
+        }
+    }
 
     @EventHandler
     public void onEvent(BlockFadeEvent e){
@@ -132,9 +140,25 @@ public class BlockListener implements Listener{
             Main.doCommand(array, "WEBSEND_EVENTS_BLOCK");
         }
     }
+    
+    @EventHandler
+    public void onEvent(BlockMultiPlaceEvent e){
+        if(config.isEventEnabled(e.getEventName())){
+            String[] array = {"event", e.getEventName()};
+            Main.doCommand(array, "WEBSEND_EVENTS_BLOCK");
+        }
+    }
 
     @EventHandler
     public void onEvent(BlockRedstoneEvent e){
+        if(config.isEventEnabled(e.getEventName())){
+            String[] array = {"event", e.getEventName()};
+            Main.doCommand(array, "WEBSEND_EVENTS_BLOCK");
+        }
+    }
+    
+    @EventHandler
+    public void onEvent(CauldronLevelChangeEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
             Main.doCommand(array, "WEBSEND_EVENTS_BLOCK");

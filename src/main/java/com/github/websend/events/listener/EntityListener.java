@@ -220,6 +220,14 @@ public class EntityListener implements Listener {
             Main.doCommand(array, "WEBSEND_EVENTS_ENTITY");
         }
     }
+    
+    @EventHandler
+    public void onEvent(FireworkExplodeEvent e){
+        if(config.isEventEnabled(e.getEventName())){
+            String[] array = {"event", e.getEventName()};
+            Main.doCommand(array, "WEBSEND_EVENTS_ENTITY");
+        }
+    }
 
     @EventHandler
     public void onEvent(FoodLevelChangeEvent e){
@@ -239,6 +247,14 @@ public class EntityListener implements Listener {
 
     @EventHandler
     public void onEvent(ItemDespawnEvent e){
+        if(config.isEventEnabled(e.getEventName())){
+            String[] array = {"event", e.getEventName()};
+            Main.doCommand(array, "WEBSEND_EVENTS_ENTITY");
+        }
+    }
+    
+    @EventHandler
+    public void onEvent(ItemMergeEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
             Main.doCommand(array, "WEBSEND_EVENTS_ENTITY");
@@ -319,6 +335,22 @@ public class EntityListener implements Listener {
 
     @EventHandler
     public void onEvent(SlimeSplitEvent e){
+        if(config.isEventEnabled(e.getEventName())){
+            String[] array = {"event", e.getEventName()};
+            Main.doCommand(array, "WEBSEND_EVENTS_ENTITY");
+        }
+    }
+    
+    @EventHandler
+    public void onEvent(VillagerAcquireTradeEvent e){
+        if(config.isEventEnabled(e.getEventName())){
+            String[] array = {"event", e.getEventName()};
+            Main.doCommand(array, "WEBSEND_EVENTS_ENTITY");
+        }
+    }
+    
+    @EventHandler
+    public void onEvent(VillagerReplenishTradeEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
             Main.doCommand(array, "WEBSEND_EVENTS_ENTITY");
