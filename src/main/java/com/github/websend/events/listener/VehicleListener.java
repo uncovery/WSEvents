@@ -21,7 +21,7 @@ public class VehicleListener implements Listener{
         }
     }
     
-    @EventHandler
+    //@EventHandler
     public void onEvent(VehicleCollisionEvent e){
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};

@@ -36,9 +36,11 @@ public class EntityEventsConfiguration extends Configuration {
                     "EntityUnleashEvent",
                     "ExpBottleEvent",
                     "ExplosionPrimeEvent",
+                    "FireworkExplodeEvent",
                     "FoodLevelChangeEvent",
                     "HorseJumpEvent",
                     "ItemDespawnEvent",
+                    "ItemMergeEvent",
                     "ItemSpawnEvent",
                     "PigZapEvent",
                     "PlayerDeathEvent",
@@ -48,7 +50,9 @@ public class EntityEventsConfiguration extends Configuration {
                     "ProjectileLaunchEvent",
                     "SheepDyeWoolEvent",
                     "SheepRegrowWoolEvent",
-                    "SlimeSplitEvent"
+                    "SlimeSplitEvent",
+                    "VillagerAcquireTradeEvent",
+                    "VillagerReplenishTradeEvent"
                 };
     }
 }

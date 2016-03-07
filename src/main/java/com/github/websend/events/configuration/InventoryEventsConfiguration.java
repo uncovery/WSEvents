@@ -23,6 +23,7 @@ public class InventoryEventsConfiguration extends Configuration {
                     "InventoryMoveItemEvent",
                     "InventoryOpenEvent",
                     "InventoryPickupItemEvent",
+                    "PrepareAnvilEvent",
                     "PrepareItemCraftEvent"};
     }
 }
