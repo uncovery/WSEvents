@@ -1,6 +1,8 @@
 package com.github.websend.events.configuration;
 
-public class BlockEventsConfiguration extends Configuration {
+import com.github.websend.events.listener.BlockListener;
+
+public class BlockEventsConfiguration extends Configuration<BlockListener> {
 
     @Override
     public String getFilename() {

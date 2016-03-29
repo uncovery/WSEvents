@@ -1,6 +1,8 @@
 package com.github.websend.events.configuration;
 
-public class EnchantmentEventsConfiguration extends Configuration {
+import com.github.websend.events.listener.EnchantmentListener;
+
+public class EnchantmentEventsConfiguration extends Configuration<EnchantmentListener> {
 
     @Override
     public String getFilename() {

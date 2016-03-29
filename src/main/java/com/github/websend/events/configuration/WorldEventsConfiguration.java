@@ -1,6 +1,8 @@
 package com.github.websend.events.configuration;
 
-public class WorldEventsConfiguration extends Configuration {
+import com.github.websend.events.listener.WorldListener;
+
+public class WorldEventsConfiguration extends Configuration<WorldListener> {
 
     @Override
     public String getFilename() {

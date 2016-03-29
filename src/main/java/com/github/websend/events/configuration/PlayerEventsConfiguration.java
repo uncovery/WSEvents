@@ -1,6 +1,8 @@
 package com.github.websend.events.configuration;
 
-public class PlayerEventsConfiguration extends Configuration {
+import com.github.websend.events.listener.PlayerListener;
+
+public class PlayerEventsConfiguration extends Configuration<PlayerListener> {
 
     @Override
     public String getFilename() {

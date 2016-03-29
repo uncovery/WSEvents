@@ -1,6 +1,8 @@
 package com.github.websend.events.configuration;
 
-public class VehicleEventsConfiguration extends Configuration {
+import com.github.websend.events.listener.VehicleListener;
+
+public class VehicleEventsConfiguration extends Configuration<VehicleListener> {
 
     @Override
     public String getFilename() {

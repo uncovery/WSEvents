@@ -1,6 +1,8 @@
 package com.github.websend.events.configuration;
 
-public class HangingEventsConfiguration extends Configuration {
+import com.github.websend.events.listener.HangingListener;
+
+public class HangingEventsConfiguration extends Configuration<HangingListener> {
 
     @Override
     public String getFilename() {

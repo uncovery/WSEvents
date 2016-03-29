@@ -1,6 +1,8 @@
 package com.github.websend.events.configuration;
 
-public class InventoryEventsConfiguration extends Configuration {
+import com.github.websend.events.listener.InventoryListener;
+
+public class InventoryEventsConfiguration extends Configuration<InventoryListener> {
 
     @Override
     public String getFilename() {

@@ -1,6 +1,8 @@
 package com.github.websend.events.configuration;
 
-public class EntityEventsConfiguration extends Configuration {
+import com.github.websend.events.listener.EntityListener;
+
+public class EntityEventsConfiguration extends Configuration<EntityListener> {
 
     @Override
     public String getFilename() {

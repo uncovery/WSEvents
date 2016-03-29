@@ -4,9 +4,10 @@ import com.github.websend.events.Main;
 import java.io.*;
 import java.util.HashSet;
 import java.util.logging.Level;
+import org.bukkit.event.Listener;
 
-public abstract class Configuration {
-    private HashSet<String> activeEventsList = new HashSet<String>();
+public abstract class Configuration<T extends Listener> {
+    protected HashSet<String> activeEventsList = new HashSet<String>();
     
     public void loadConfiguration() throws IOException{        
         File configFile = new File(Main.getInstance().getDataFolder(), this.getFilename());
@@ -31,12 +32,13 @@ public abstract class Configuration {
         return !activeEventsList.isEmpty();
     }
     
-    private void parseLine(String line){
-        if(line.split("=").length != 2){
+    protected void parseLine(String line){
+        String[] parts = line.split("=");
+        if(parts.length != 2){
             Main.getInstance().getLogger().log(Level.WARNING, "Invalid config line: "+line);
         }else{
-            String name = line.split("=")[0].trim();
-            String boolString = line.split("=")[1].trim();
+            String name = parts[0].trim();
+            String boolString = parts[1].trim();
             boolean active = Boolean.parseBoolean(boolString.trim());
             if(active){
                 activeEventsList.add(name);
@@ -44,15 +46,22 @@ public abstract class Configuration {
         }
     }
     
-    public void writeConfigurationFile(File file) throws IOException{
-        PrintWriter writer = new PrintWriter(new FileWriter(file));
+    protected String getDefaultConfig(){
+        StringBuilder builder = new StringBuilder();
         for(String str : this.getEventNameList()){
-            writer.println(str+"=false");
+            builder.append(str+"=false\n");
         }
-        writer.flush();
-        writer.close();
+        return builder.toString();
+    }
+    
+    public void writeConfigurationFile(File file) throws IOException{
+        try (PrintWriter writer = new PrintWriter(new FileWriter(file))) {
+            writer.print(getDefaultConfig());
+            writer.flush();
+        }
     };
     
     public abstract String getFilename();
     public abstract String[] getEventNameList();
+    public void initialize(){}
 }

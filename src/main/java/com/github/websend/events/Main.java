@@ -2,7 +2,11 @@ package com.github.websend.events;
 
 import com.github.websend.events.configuration.*;
 import com.github.websend.events.listener.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
@@ -28,136 +32,54 @@ public class Main extends JavaPlugin{
     private int registerListeners(){
         //Ugly, but the most clean and balanced approach I can come up with...
         int loadedAmount = 0;
-        try {
-            BlockEventsConfiguration config = new BlockEventsConfiguration();
-            config.loadConfiguration();
-            if(config.hasActiveEvent()){
-                this.getServer().getPluginManager().registerEvents(new BlockListener(config), this);
-                loadedAmount++;
-            }
-        } catch (Exception ex) {
-            this.getLogger().log(Level.SEVERE, "Failed to load the block events config file.", ex);
-        }
         
-        try {
-            EnchantmentEventsConfiguration config = new EnchantmentEventsConfiguration();
-            config.loadConfiguration();
-            if(config.hasActiveEvent()){
-                this.getServer().getPluginManager().registerEvents(new EnchantmentListener(config), this);
-                loadedAmount++;
-            }
-        } catch (Exception ex) {
-            this.getLogger().log(Level.SEVERE, "Failed to load the enchantment events config file.", ex);
-        }
+        loadedAmount += loadEventHandler(BlockEventsConfiguration.class, BlockListener.class) ? 1 : 0;
+        loadedAmount += loadEventHandler(EnchantmentEventsConfiguration.class, EnchantmentListener.class) ? 1 : 0;
+        loadedAmount += loadEventHandler(EntityEventsConfiguration.class, EntityListener.class) ? 1 : 0;
+        loadedAmount += loadEventHandler(HangingEventsConfiguration.class, HangingListener.class) ? 1 : 0;
+        loadedAmount += loadEventHandler(InventoryEventsConfiguration.class, InventoryListener.class) ? 1 : 0;
+        loadedAmount += loadEventHandler(PlayerEventsConfiguration.class, PlayerListener.class) ? 1 : 0;
+        loadedAmount += loadEventHandler(ServerEventsConfiguration.class, ServerListener.class) ? 1 : 0;
+        loadedAmount += loadEventHandler(VehicleEventsConfiguration.class, VehicleListener.class) ? 1 : 0;
+        loadedAmount += loadEventHandler(WeatherEventsConfiguration.class, WeatherListener.class) ? 1 : 0;
+        loadedAmount += loadEventHandler(WorldEventsConfiguration.class, WorldListener.class) ? 1 : 0;
         
-        try {
-            EntityEventsConfiguration config = new EntityEventsConfiguration();
-            config.loadConfiguration();
-            if(config.hasActiveEvent()){
-                this.getServer().getPluginManager().registerEvents(new EntityListener(config), this);
-                loadedAmount++;
-            }
-        } catch (Exception ex) {
-            this.getLogger().log(Level.SEVERE, "Failed to load the entity events config file.", ex);
-        }
-        
-        try {
-            HangingEventsConfiguration config = new HangingEventsConfiguration();
-            config.loadConfiguration();
-            if(config.hasActiveEvent()){
-                this.getServer().getPluginManager().registerEvents(new HangingListener(config), this);
-                loadedAmount++;
-            }
-        } catch (Exception ex) {
-            this.getLogger().log(Level.SEVERE, "Failed to load the hanging events config file.", ex);
-        }
-        
-        try {
-            InventoryEventsConfiguration config = new InventoryEventsConfiguration();
-            config.loadConfiguration();
-            if(config.hasActiveEvent()){
-                this.getServer().getPluginManager().registerEvents(new InventoryListener(config), this);
-                loadedAmount++;
-            }
-        } catch (Exception ex) {
-            this.getLogger().log(Level.SEVERE, "Failed to load the inventory events config file.", ex);
-        }
-        
-        try {
-            PlayerEventsConfiguration config = new PlayerEventsConfiguration();
-            config.loadConfiguration();
-            if(config.hasActiveEvent()){
-                this.getServer().getPluginManager().registerEvents(new PlayerListener(config), this);
-                loadedAmount++;
-            }
-        } catch (Exception ex) {
-            this.getLogger().log(Level.SEVERE, "Failed to load the player events config file.", ex);
-        }
-        
-        try {
-            ServerEventsConfiguration config = new ServerEventsConfiguration();
-            config.loadConfiguration();
-            if(config.hasActiveEvent()){
-                this.getServer().getPluginManager().registerEvents(new ServerListener(config), this);
-                loadedAmount++;
-            }
-        } catch (Exception ex) {
-            this.getLogger().log(Level.SEVERE, "Failed to load the server events config file.", ex);
-        }
-        
-        try {
-            VehicleEventsConfiguration config = new VehicleEventsConfiguration();
-            config.loadConfiguration();
-            if(config.hasActiveEvent()){
-                this.getServer().getPluginManager().registerEvents(new VehicleListener(config), this);
-                loadedAmount++;
-            }
-        } catch (Exception ex) {
-            this.getLogger().log(Level.SEVERE, "Failed to load the vehicle events config file.", ex);
-        }
-        
-        try {
-            WeatherEventsConfiguration config = new WeatherEventsConfiguration();
-            config.loadConfiguration();
-            if(config.hasActiveEvent()){
-                this.getServer().getPluginManager().registerEvents(new WeatherListener(config), this);
-                loadedAmount++;
-            }
-        } catch (Exception ex) {
-            this.getLogger().log(Level.SEVERE, "Failed to load the weather events config file.", ex);
-        }
-        
-        try {
-            WorldEventsConfiguration config = new WorldEventsConfiguration();
-            config.loadConfiguration();
-            if(config.hasActiveEvent()){
-                this.getServer().getPluginManager().registerEvents(new WorldListener(config), this);
-                loadedAmount++;
-            }
-        } catch (Exception ex) {
-            this.getLogger().log(Level.SEVERE, "Failed to load the world events config file.", ex);
-        }
         return loadedAmount;
     }
     
-    /*
-     * Use to generate event handler code:
-    
-    public static void main(String args[]){
-        String[] eventNames = {};
-        generateEventHandlerCode(eventNames);
-    }
-    
-    private static void generateEventHandlerCode(String[] eventNames){
-        for(String cur : eventNames){
-            System.out.println();
-            System.out.println("    @EventHandler");
-            System.out.println("    public void onEvent("+cur+" e){");
-            System.out.println("        if(config.isEventEnabled(e.getEventName())){");
-            System.out.println("            String[] array = {\"event\", e.getEventName()};");
-            System.out.println("            Main.doCommand(array, e.getPlayer());");
-            System.out.println("        }");
-            System.out.println("    }");
+    public <T extends Listener> boolean loadEventHandler(Class<? extends Configuration<T>> configClass, Class<T> listenerClass){
+        Configuration<T> config = null;
+        try {
+            config = configClass.newInstance();
+            config.loadConfiguration();
+            if(!config.hasActiveEvent()){
+                return false;
+            }
+        } catch (Exception ex) {
+            String type = config == null ? "null" : config.getFilename();
+            this.getLogger().log(Level.SEVERE, "Failed to load the events config file "+type+".", ex);
         }
-    }*/
+        
+        T listener = null;
+        try {
+            Constructor<T> constructor = listenerClass.getConstructor(configClass);
+            listener = constructor.newInstance(config);
+        } catch (SecurityException | NoSuchMethodException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
+            this.getLogger().log(Level.SEVERE, "Failed to instanciate "+listenerClass.getName(), ex);
+        }
+        
+        if(listener == null){
+            this.getLogger().log(Level.SEVERE, "No valid constructor found for "+listenerClass.getName());
+            return false;
+        }
+        
+        try {
+            config.initialize();
+            this.getServer().getPluginManager().registerEvents(listener, this);
+            return true;
+        } catch (Exception ex) {
+            this.getLogger().log(Level.SEVERE, "Failed to load the events config file "+config.getFilename()+".", ex);
+        }
+        return false;
+    }
 }

@@ -1,6 +1,8 @@
 package com.github.websend.events.configuration;
 
-public class WeatherEventsConfiguration extends Configuration {
+import com.github.websend.events.listener.WeatherListener;
+
+public class WeatherEventsConfiguration extends Configuration<WeatherListener> {
 
     @Override
     public String getFilename() {
