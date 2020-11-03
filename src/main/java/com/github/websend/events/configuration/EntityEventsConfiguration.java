@@ -19,7 +19,6 @@ public class EntityEventsConfiguration extends Configuration<EntityListener> {
                     "EntityCombustByBlockEvent",
                     "EntityCombustByEntityEvent",
                     "EntityCombustEvent",
-                    "EntityCreatePortalEvent",
                     "EntityDamageByBlockEvent",
                     "EntityDamageByEntityEvent",
                     "EntityDamageEvent",

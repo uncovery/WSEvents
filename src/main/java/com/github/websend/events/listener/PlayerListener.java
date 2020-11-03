@@ -13,7 +13,8 @@ public class PlayerListener implements Listener{
     public PlayerListener(PlayerEventsConfiguration config) {
         this.config = config;
     }
-    
+
+
     @EventHandler
     public void onEvent(AsyncPlayerChatEvent e){
         if(config.isEventEnabled(e.getEventName())){
@@ -27,14 +28,6 @@ public class PlayerListener implements Listener{
         if(config.isEventEnabled(e.getEventName())){
             String[] array = {"event", e.getEventName()};
             Main.doCommand(array, e.getName());
-        }
-    }
-    
-    @EventHandler
-    public void onEvent(PlayerAchievementAwardedEvent e){
-        if(config.isEventEnabled(e.getEventName())){
-            String[] array = {"event", e.getEventName()};
-            Main.doCommand(array, e.getPlayer());
         }
     }
 
@@ -125,7 +118,7 @@ public class PlayerListener implements Listener{
             Main.doCommand(array, e.getPlayer());
         }
     }
-    
+
     @EventHandler
     public void onEvent(PlayerEditBookEvent e){
         if(config.isEventEnabled(e.getEventName())){
@@ -173,7 +166,7 @@ public class PlayerListener implements Listener{
             Main.doCommand(array, e.getPlayer());
         }
     }
-    
+
     @EventHandler
     public void onEvent(PlayerArmorStandManipulateEvent e){
         if(config.isEventEnabled(e.getEventName())){
@@ -181,7 +174,7 @@ public class PlayerListener implements Listener{
             Main.doCommand(array, e.getPlayer());
         }
     }
-    
+
     @EventHandler
     public void onEvent(PlayerInteractAtEntityEvent e){
         if(config.isEventEnabled(e.getEventName())){
@@ -293,7 +286,7 @@ public class PlayerListener implements Listener{
             Main.doCommand(array, e.getPlayer());
         }
     }
-    
+
     @EventHandler
     public void onEvent(PlayerResourcePackStatusEvent e){
         if(config.isEventEnabled(e.getEventName())){
@@ -325,7 +318,7 @@ public class PlayerListener implements Listener{
             Main.doCommand(array, e.getPlayer());
         }
     }
-    
+
     @EventHandler
     public void onEvent(PlayerStatisticIncrementEvent e){
         if(config.isEventEnabled(e.getEventName())){
@@ -373,7 +366,7 @@ public class PlayerListener implements Listener{
             Main.doCommand(array, e.getPlayer());
         }
     }
-    
+
     @EventHandler
     public void onEvent(PlayerUnregisterChannelEvent e){
         if(config.isEventEnabled(e.getEventName())){
@@ -389,7 +382,7 @@ public class PlayerListener implements Listener{
             Main.doCommand(array, e.getPlayer());
         }
     }
-    
+
     public void onCustomEvent(String eventName, Player player){
         String[] array = {"event", eventName};
             Main.doCommand(array, player);

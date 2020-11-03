@@ -14,7 +14,6 @@ public class PlayerEventsConfiguration extends Configuration<PlayerListener> {
         return new String[]{
                     "AsyncPlayerChatEvent",
                     "AsyncPlayerPreLoginEvent",
-                    "PlayerAchievementAwardedEvent",
                     "PlayerAnimationEvent",
                     "PlayerArmorStandManipulateEvent",
                     "PlayerBedEnterEvent",
