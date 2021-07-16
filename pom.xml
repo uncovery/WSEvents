@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.websend</groupId>
     <artifactId>WSEvents</artifactId>
-    <version>1.4</version>
+    <version>1.5</version>
     <packaging>jar</packaging>
     <repositories>
         <repository>
@@ -15,13 +15,13 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.4-R0.1-SNAPSHOT</version>
+            <version>1.17-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>Websend</artifactId>
-            <version>4.6</version>
+            <version>5.5</version>
             <scope>system</scope>
             <systemPath>${basedir}/lib/Websend.jar</systemPath>
         </dependency>
